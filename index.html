@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <title>Shrimple Script</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="dist/bundle.js"></script>
+</head>
+<body>
+    <div id="header">
+        <h1>Shrimple Script</h1>
+        <div id="helpButton">
+            ?
+        </div>
+    </div>
+    <div id="buttons">
+        <div id="newButton" class="button">
+            New
+        </div>
+        <div id="runButton" class="button">
+            Run
+        </div>
+        <div id="shareButton" class="button">
+            share
+        </div>
+    </div>
+    <div id="options"></div>
+    <textarea id="ScriptBox" contenteditable="true">
+
+    </textarea>
+
+    <div id="helpModal">
+        <!-- mardown format -->
+        <h1>Shrimple Script</h1>
+        <br>
+        <p>Set the options with <code>/** <span style="color:#569cd6;">@option</span> Title, Example Value */</code>.</p>
+        <p>This can be in any type of comment block as long as the options end in a newline</p>
+        <br>
+        <p>Fetch the options with <code style="color: #9cdcfe;">options<span style="color:#ffd700;">[</span>index<span style="color:#ffd700;">]</span></code></p>
+        <br>
+        <p>use <code style="color:#c586c0">return</code> to output the finished data</p>
+        <br>
+        <p>An example of these is automatically filled out when loading a new script</p>
+        <br>
+        <p class="closeModalButton">close</p>
+    </div>
+    <div id="ResultModal">
+        <p class="closeModalButton">close</p>
+        <br>
+        <h1>Result:</h1>
+        <p id="resultText">
+            <code>
+                <pre>
+                </pre>
+            </code>
+        </p>
+        <br>
+        <img src="./shrimp-simple.gif" alt="Shrimple as that" width="300px">
+        <br>
+        <p class="closeModalButton">close</p>
+    </div>
+</body>
+</html>
