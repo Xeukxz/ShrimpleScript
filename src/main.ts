@@ -98,7 +98,7 @@ $(() => {
         // convert code to base64
         let base64 = btoa(code)
         // create url
-        let url = `${window.location.href}?code=${base64}`
+        let url = `${window.location.href.split('?code=')[0]}?code=${base64}`
         // copy url to clipboard
         navigator.clipboard.writeText(url)
         $(`#shareButton`).html("Copied!")
