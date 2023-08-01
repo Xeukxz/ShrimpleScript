@@ -26,10 +26,6 @@ $(() => {
 
     $(`#ScriptBox`).on("keydown", (e) => {
         let code = $(`#ScriptBox`).html()
-
-        // options are written in /** */ comments
-        let options = code.match(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm)
-
         setTimeout(() => loadOptions())
     })
 
@@ -66,11 +62,11 @@ $(() => {
         let code = $(`#ScriptBox`).val() as string
         let options = code.split('@option').map((str, i) => str.replace(str.slice(str.indexOf('\n')), '').trim().split(',').map(val => val.trim())).splice(1)
 
-        if(ops == options || options.length < 1) return
-
+        if(ops == options) return
         ops = options
-
+        
         $("#options").html("")
+        if(options.length < 1) return
 
         ops.forEach((option, index) => {
             $("#options").append(`
