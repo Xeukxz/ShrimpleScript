@@ -6,6 +6,8 @@
     --transitionTime: 0.5s;
     --transitionTimeFast: 0.2s;
 }
+/* if on mobile, make text larger */
+
 
 body {
     /* background-color: rgb(63, 65, 69); */
@@ -127,8 +129,9 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    height: 40px;
+    /* width: 100px;
+    height: 40px; */
+    padding: 10px 20px 10px 20px;
     margin: 10px;
     border-radius: 20px;
     background-color: rgb(38, 38, 40);
@@ -252,6 +255,7 @@ p {
     transform: translate(-50%, -50%);
 
     width: max-content;
+    max-width: 90vw;
     height: max-content;
     padding: 20px;
 
@@ -273,6 +277,7 @@ p {
     transform: translate(-50%, -50%);
 
     width: max-content;
+    max-width: 90vw;
     height: max-content;
     padding: 20px;
 
@@ -316,4 +321,27 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    #ScriptBox {
+        font-size: 20px;
+    }
+    .option {
+        font-size: 25px;
+        width: 80vw;
+    }
+    .button {
+        font-size: 30px;
+        border-radius: 100px;
+    }
+    #helpButton {
+        font-size: 20px;
+    }
+    h1 {
+        font-size: 50px;
+    }
+    p {
+        font-size: 25px;
+    }
 }
