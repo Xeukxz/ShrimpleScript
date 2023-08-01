@@ -2,7 +2,7 @@ $(() => {
     // Get the code from the URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     // decode from base64 
-    const quickCode = atob(urlParams.get('code') ?? "LyoqCiAqIEBvcHRpb24gT3B0aW9uIFRpdGxlLCBFeGFtcGxlIFZhbHVlCiAqIEBvcHRpb24gT3B0aW9uIFRpdGxlIDIsIEV4YW1wbGUgVmFsdWUyCiAqLwoKbGV0IG9wdGlvbjEgPSBvcHRpb25zWzBdIC8vIHJldHVybnMgdGhlIHZhbHVlIG9mIGZpcnN0IG9wdGlvbgpsZXQgb3B0aW9uMiA9IG9wdGlvbnNbMV0gLy8gcmV0dXJucyB0aGUgdmFsdWUgb2Ygc2Vjb25kIG9wdGlvbgoKCgpyZXR1cm4gb3B0aW9uMSArIG9wdGlvbjIKCg==")
+    const quickCode = atob(decodeURIComponent(urlParams.get('code') ?? "LyoqCiAqIEBvcHRpb24gT3B0aW9uIFRpdGxlLCBFeGFtcGxlIFZhbHVlCiAqIEBvcHRpb24gT3B0aW9uIFRpdGxlIDIsIEV4YW1wbGUgVmFsdWUyCiAqLwoKbGV0IG9wdGlvbjEgPSBvcHRpb25zWzBdIC8vIHJldHVybnMgdGhlIHZhbHVlIG9mIGZpcnN0IG9wdGlvbgpsZXQgb3B0aW9uMiA9IG9wdGlvbnNbMV0gLy8gcmV0dXJucyB0aGUgdmFsdWUgb2Ygc2Vjb25kIG9wdGlvbgoKCgpyZXR1cm4gb3B0aW9uMSArIG9wdGlvbjIKCg=="))
 
     // Update the page content with the code
     if (quickCode) $(`#ScriptBox`).val(quickCode)
@@ -93,12 +93,15 @@ $(() => {
         await run()
     })
 
+    
+
     $(`#shareButton`).on("click", () => {
         let code = $(`#ScriptBox`).val() as string
         // convert code to base64
         let base64 = btoa(code)
         // create url
-        let url = `${window.location.href.split('?code=')[0]}?code=${base64}`
+        let url = `${window.location.href.split('?code=')[0]}?code=${encodeURIComponent(base64)}`
+        
         // copy url to clipboard
         navigator.clipboard.writeText(url)
         $(`#shareButton`).html("Copied!")
@@ -113,5 +116,10 @@ $(() => {
         window.location.href = window.location.href.split('?')[0]
 
     })
+
+    //for each child of body, give rotate animation
+    /* $(`body`).children().each((index, element) => {
+        $(element).css("animation", `rotate 2s ease-in-out ${index * 0.1}s infinite`)
+    }) */
     
 })
