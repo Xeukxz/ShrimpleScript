@@ -364,7 +364,14 @@ h1 {
     p {
         font-size: 35px;
     }
+    #ResultModal {
+        width: 70vw;
+    }
     #resultText {
-        font-size: 35px;
+        font-size: 55px;
+    }
+    #shrimpGif {
+        width: 100%;
+        margin: 0 10% 0 10%;
     }
 }
